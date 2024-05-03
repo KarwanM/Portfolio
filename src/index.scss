@@ -1,21 +1,23 @@
 @use "./assets/fonts/inter";
 
-#root{
+#root {
+  height: 100vh;
   background-color: black;
 }
 
 * {
-    margin: 0;
-    padding: 0;
-    border: 0;
-    font-family: Inter;
-    color: white;
-  }
-  
-  li {
-    list-style-type: none;
-  }
-  
-  a {
-    text-decoration: none;
-  }
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-family: Inter;
+  color: white;
+  box-sizing: border-box;
+}
+
+li {
+  list-style-type: none;
+}
+
+a {
+  text-decoration: none;
+}
