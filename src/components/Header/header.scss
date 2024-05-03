@@ -16,6 +16,9 @@ nav {
       cursor: pointer;
       padding: 16px 20px;
       text-align: center;
+      :hover{
+        color: colors.$brightgreen;
+      }
     }
   }
   .search {
