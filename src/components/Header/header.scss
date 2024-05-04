@@ -10,13 +10,14 @@ nav {
   display: flex;
   justify-content: space-between;
   font-size: 14px;
+  margin: 0 5%;
   ul {
     display: flex;
     li {
       cursor: pointer;
       padding: 16px 20px;
       text-align: center;
-      :hover{
+      :hover {
         color: colors.$brightgreen;
       }
     }
