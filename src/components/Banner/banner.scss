@@ -1,3 +1,61 @@
-.banner{
-    
+@use "../../assets/constants/colors";
+
+.banner {
+  text-align: center;
+  margin-top: 100px;
+  p,
+  h1,
+  h3 {
+    margin: 25px 0;
+  }
+  h1 {
+    font-size: 60px;
+  }
+  h3 {
+    font-size: 35px;
+    box-sizing: border-box;
+  }
+  p {
+    span {
+      color: colors.$brightgreen;
+    }
+  }
+  .banner-animated-text {
+    span {
+      color: colors.$brightgreen;
+      position: relative;
+      text-transform: uppercase;
+      &::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: black;
+        border-left: 4px solid white;
+        animation: typing 3s steps(13) infinite;
+      }
+    }
+  }
+  .left-banner-buttons {
+    margin-top: 40px;
+    div {
+      display: inline-block;
+      margin-right: 20px;
+      padding: 10px 16px;
+      border: 0.5px solid gray;
+      border-radius: 20px;
+      &:hover {
+        color: colors.$brightgreen;
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+@keyframes typing {
+  35%,
+  75% {
+    left: calc(100% + 5px);
+  }
 }
