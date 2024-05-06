@@ -1,6 +1,6 @@
 import React from "react";
 
-import "./banner.scss"
+import "./banner.scss";
 
 const Banner = () => {
   return (
@@ -13,6 +13,14 @@ const Banner = () => {
         <h3>
           <span>Software Engineer</span>
         </h3>
+      </div>
+      <div className="left-banner-buttons">
+        <div id="portfolio" onClick={""}>
+          See my work
+        </div>
+        <div id="contact" onClick={""}>
+          Contact
+        </div>
       </div>
     </div>
   );
