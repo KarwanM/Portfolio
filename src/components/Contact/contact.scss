@@ -1,0 +1,55 @@
+@use "../../assets/constants/colors";
+
+.contact-header {
+    h1 {
+        text-align: center;
+        color: colors.$brightgreen;
+    }
+}
+
+.contact-content {
+    display: flex;
+    margin-top: 30px;
+    .contact-form {
+        width: 70%;
+        margin: 0 auto;
+        .name,
+        .message,
+        button {
+            width: 100%;
+        }
+        input,
+        textarea,
+        button {
+            margin-top: 20px;
+            padding: 10px 0;
+            color: black;
+            padding-left: 10px;
+            box-sizing: border-box;
+        }
+        textarea {
+            height: 200px;
+        }
+        button {
+            width: 40%;
+            margin-left: 30%;
+            background-color: colors.$black;
+            border: 1px solid gray;
+            border-radius: 20px;
+            color: colors.$white;
+            &:hover {
+                color: colors.$brightgreen;
+                cursor: pointer;
+            }
+        }
+        .input-wrapper {
+            display: flex;
+            justify-content: space-between;
+            .email,
+            .subject {
+                width: 48%;
+                border: 1px colors.$white solid;
+            }
+        }
+    }
+}
