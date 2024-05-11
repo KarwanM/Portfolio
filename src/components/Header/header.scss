@@ -2,36 +2,68 @@
 
 header {
   position: sticky;
+  z-index: 3;
   max-width: 1080px;
   margin: 0 auto;
 }
 
 nav {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
+  position: relative;
   font-size: 14px;
-  margin: 0 5%;
-  ul {
-    display: flex;
-    li {
-      cursor: pointer;
-      padding: 16px 20px;
-      text-align: center;
-      :hover {
+  .dropdown {
+    display: none;
+    position: absolute;
+    padding: 7px;
+    right: 30px;
+    width: 38px;
+    cursor: pointer;
+    span {
+      border-radius: 5px;
+      display: block;
+      height: 3.5px;
+      margin: 8px 0;
+      width: 100%;
+      background-color: colors.$brightgreen;
+    }
+  }
+  .nav-left {
+    padding: 16px 20px;
+    max-width: 200px;;
+    div {
+      font-size: 16px;
+      &:hover {
+        cursor: pointer;
         color: colors.$brightgreen;
       }
     }
   }
-  .search {
-    cursor: pointer;
-    padding: 8px 20px 6px 20px;
-    img {
-      display: block;
-      width: 36px;
-      height: 36px;
-      padding: 9px;
-      border-radius: 50%;
-      background-color: white;
+  .nav-right {
+    display: flex;
+    justify-content: space-between;
+    ul {
+      display: flex;
+      li {
+        cursor: pointer;
+        padding: 16px 20px;
+        text-align: center;
+        &:hover {
+          color: colors.$brightgreen;
+        }
+      }
+    }
+    .search {
+      cursor: pointer;
+      padding: 8px 20px 6px 20px;
+      img {
+        display: block;
+        width: 36px;
+        height: 36px;
+        padding: 9px;
+        border-radius: 50%;
+        background-color: white;
+      }
     }
   }
 }
