@@ -37,25 +37,17 @@ const Header = () => {
           }
         >
           <ul>
-            <li>
-              <div id="home" onClick={""}>
-                Home
-              </div>
+            <li id="home" onClick={""}>
+              Home
             </li>
-            <li>
-              <div id="about" onClick={""}>
-                About
-              </div>
+            <li id="about" onClick={""}>
+              About
             </li>
-            <li>
-              <div id="projects" onClick={""}>
-                Portfolio
-              </div>
+            <li id="projects" onClick={""}>
+              Projects
             </li>
-            <li>
-              <div id="contact" onClick={""}>
-                Contact
-              </div>
+            <li id="contact" onClick={""}>
+              Contact
             </li>
           </ul>
           <div className="search">
