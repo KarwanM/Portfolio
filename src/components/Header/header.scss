@@ -15,22 +15,27 @@ nav {
   .dropdown {
     display: none;
     position: absolute;
-    padding: 7px;
-    right: 30px;
-    width: 38px;
+    padding: 4px;
+    margin-top: 6px;
+    width: 40px;
     cursor: pointer;
     span {
       border-radius: 5px;
       display: block;
-      height: 3.5px;
-      margin: 8px 0;
+      height: 3px;
+      margin: 6px 0;
       width: 100%;
-      background-color: colors.$brightgreen;
+      background-color: colors.$white;
+    }
+    &:hover {
+      span {
+        background-color: colors.$brightgreen;
+      }
     }
   }
   .nav-left {
     padding: 16px 20px;
-    max-width: 200px;;
+    max-width: 200px;
     div {
       font-size: 16px;
       &:hover {
@@ -62,7 +67,32 @@ nav {
         height: 36px;
         padding: 9px;
         border-radius: 50%;
-        background-color: white;
+        background-color: colors.$white;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 800px) {
+  nav {
+    display: block;
+    width: 100%;
+    .dropdown {
+      display: block;
+      right: 10%;
+    }
+    .nav-left {
+      margin-left: 10%;
+    }
+    .nav-right {
+      display: none;
+    }
+    .show-dropdown {
+      display: block;
+      ul {
+        display: block;
+        width: 100%;
+        text-align: center;
       }
     }
   }
