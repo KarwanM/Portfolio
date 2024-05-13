@@ -37,18 +37,18 @@ const Header = () => {
           }
         >
           <ul>
-            <li id="home" onClick={""}>
+            <Link id="home" onClick={""}>
               Home
-            </li>
-            <li id="about" onClick={""}>
+            </Link>
+            <Link id="about" onClick={""}>
               About
-            </li>
-            <li id="projects" onClick={""}>
+            </Link>
+            <Link id="projects" onClick={""}>
               Projects
-            </li>
-            <li id="contact" onClick={""}>
+            </Link>
+            <Link id="contact" onClick={""}>
               Contact
-            </li>
+            </Link>
           </ul>
           <div className="search">
             <img src={searchIcon} alt="Search Icon" />
