@@ -10,7 +10,7 @@ const Project = () => {
       <h1>Projects</h1>
       <div className="projects-container">
         {projects.map((number) => {
-          return <div>{number}</div>;
+          return <div key={number}>{number}</div>;
         })}
       </div>
     </div>
