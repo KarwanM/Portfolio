@@ -13,7 +13,12 @@ const MokeHeader = () => {
 describe("Should Render Header correctly", () => {
   it("Should render left nav element", () => {
     render(<MokeHeader />);
-    const divElement = screen.getByText(/KI Portfolio/i);
-    expect(divElement).toBeInTheDocument();
+    const leftNavElement = screen.getByText(/KI Portfolio/i);
+    expect(leftNavElement).toBeInTheDocument();
+  });
+  it("Should render right nav element", () => {
+    render(<MokeHeader />);
+    const rightNavElement = screen.getByText(/Home/i);
+    expect(rightNavElement).toBeInTheDocument();
   });
 });

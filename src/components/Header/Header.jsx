@@ -37,16 +37,16 @@ const Header = () => {
           }
         >
           <ul>
-            <Link id="home" onClick={""}>
+            <Link id="home" onClick={handleClick}>
               Home
             </Link>
-            <Link id="about" onClick={""}>
+            <Link id="about" onClick={handleClick}>
               About
             </Link>
-            <Link id="projects" onClick={""}>
+            <Link id="projects" onClick={handleClick}>
               Projects
             </Link>
-            <Link id="contact" onClick={""}>
+            <Link id="contact" onClick={handleClick}>
               Contact
             </Link>
           </ul>
