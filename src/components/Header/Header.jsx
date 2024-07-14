@@ -1,61 +1,86 @@
-import { React, useState } from "react";
-import { Link } from "react-router-dom";
+import { React, useEffect, useState, useRef } from "react";
+import { NavLink } from "react-router-dom";
+
+import { StyledHeader, StyledNav } from "./Header.styled";
 
 import "./header.scss";
 
-import searchIcon from "../../assets/icons/search.png";
-
 const Header = () => {
   const [dropdown, setDropdown] = useState(false);
+  const [pageWidth, setPageWidth] = useState(window.innerWidth);
+  const [search, setSearch] = useState("");
+
+  const newRef = useRef(null);
 
   const handleDropdown = () => {
     setDropdown(!dropdown);
   };
 
-  const handleClick = () => {
-    setDropdown(!dropdown);
+  const handleOutsideClick = (e) => {
+    if (newRef.current && !newRef.current.contains(e.target)) {
+      if (dropdown) {
+        setDropdown(false);
+      }
+      setSearch("");
+    }
   };
 
-  return (
-    <header>
-      <nav>
-        <div onClick={handleDropdown} className="dropdown">
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
+  useEffect(() => {
+    const handleResize = () => {
+      setPageWidth(window.innerWidth);
+    };
 
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
+  useEffect(() => {
+    document.addEventListener("mousedown", handleOutsideClick);
+    return () => {
+      document.removeEventListener("mousedown", handleOutsideClick);
+    };
+  });
+
+  return (
+    <StyledHeader width={pageWidth} dropdown={dropdown} ref={newRef}>
+      <StyledNav>
         <div className="nav-left">
-          <div id="home" onClick={""}>
-            KI Portfolio
+          <div id="home">&#123;&lt;/&gt;&#125;</div>
+        </div>
+        <div className="dropdown-container">
+          <div onClick={handleDropdown} className="dropdown">
+            <span></span>
+            <span></span>
+            <span></span>
           </div>
         </div>
         <div
-          onClick={handleClick}
           className={
             dropdown ? "nav-right show-dropdown" : "nav-right hide-dropdown"
           }
         >
           <ul>
-            <Link id="home" onClick={handleClick}>
-              Home
-            </Link>
-            <Link id="about" onClick={handleClick}>
-              About
-            </Link>
-            <Link id="projects" onClick={handleClick}>
-              Projects
-            </Link>
-            <Link id="contact" onClick={handleClick}>
-              Contact
-            </Link>
+            <NavLink id="home">Home</NavLink>
+            <NavLink id="about">About</NavLink>
+            <NavLink id="projects">Projects</NavLink>
+            <NavLink id="contact">Contact</NavLink>
           </ul>
-          <div className="search">
-            <img src={searchIcon} alt="Search Icon" />
+          <div className="search-container">
+            <div className="search-button">
+              <input
+                value={search}
+                onChange={(e) => setSearch(e.target.value)}
+                type="text"
+                name="search"
+                placeholder="Search"
+              />
+            </div>
           </div>
         </div>
-      </nav>
-    </header>
+      </StyledNav>
+    </StyledHeader>
   );
 };
 
