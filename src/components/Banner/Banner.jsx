@@ -1,26 +1,80 @@
-import React from "react";
+import { useEffect, useState } from "react";
 
 import "./banner.scss";
 
+import { skills } from "../../data";
+
 const Banner = () => {
+  const [currentTitle, setCurrenTitle] = useState([]);
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const title = "SOFTWARE ENGINEER";
+  const [titleLoop, setTitleLoop] = useState(false);
+
+  useEffect(() => {
+    if (!titleLoop) {
+      if (currentIndex <= title.length) {
+        const timeout = setTimeout(() => {
+          setCurrenTitle((prevTodos) => {
+            return [...prevTodos, title[currentIndex]];
+          });
+          setCurrentIndex((prevIndex) => prevIndex + 1);
+        }, 100);
+        if (currentIndex >= title.length) {
+          setTimeout(() => {
+            setTitleLoop(true);
+          }, 1000);
+        }
+        return () => clearTimeout(timeout);
+      }
+    } else if (titleLoop) {
+      if (currentIndex >= -1) {
+        const timeout = setTimeout(() => {
+          setCurrenTitle((prevTodos) =>
+            prevTodos.filter((l, index) => {
+              return index !== currentIndex;
+            })
+          );
+          setCurrentIndex((prevIndex) => prevIndex - 1);
+        }, 100);
+        if (currentIndex <= -1) {
+          setTitleLoop(false);
+        }
+        return () => clearTimeout(timeout);
+      }
+    }
+  }, [currentIndex, title, titleLoop]);
+
   return (
-    <div className="banner">
-      <p>
-        Hi There, <span>I'm</span>
-      </p>
-      <h1>Karwan Ismael</h1>
-      <div className="banner-animated-text">
-        <h3>
-          <span>Software Engineer</span>
-        </h3>
+    <div className="banner-container">
+      <div className="top-banner">
+        <h2>Karwan Ismael</h2>
+        <div className="banner-animated-text">
+          <h1 className="title">
+            <span>.</span>
+            {currentTitle}
+            <span>.</span>
+          </h1>
+        </div>
+        <p>
+          <span>Location:</span> London - United Kingdom
+        </p>
+        <div className="top-banner-buttons">
+          <div id="portfolio">Projects</div>
+          <div id="contact">Contact</div>
+        </div>
       </div>
-      <div className="left-banner-buttons">
-        <div id="portfolio" onClick={""}>
-          See my work
-        </div>
-        <div id="contact" onClick={""}>
-          Contact
-        </div>
+      <div className="bottom-banner">
+        <ul>
+          {skills &&
+            skills.map((skill, index) => {
+              return (
+                <li key={index}>
+                  <img src={skill.img} alt={skill.title}/>
+                  <p>{skill.title}</p>
+                </li>
+              );
+            })}
+        </ul>
       </div>
     </div>
   );
