@@ -4,7 +4,7 @@
 $bannertopmargin: 100px;
 
 .banner-container {
-  height: calc(100vh - variables.$lg-banner-height - $bannertopmargin);
+  min-height: 100vh;
   text-align: center;
   margin: $bannertopmargin auto 0 auto;
   max-width: 1920px;
@@ -47,32 +47,60 @@ $bannertopmargin: 100px;
 
   .bottom-banner {
     margin-top: 100px;
-    ul {
-      display: flex;
-      justify-content: space-around;
-      flex-wrap: wrap;
-      max-width: 1578px;
-      margin: 0 auto;
-      li {
-        width: 12%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px 8%;
+    .experience-container {
+      .experience-header {
         display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        margin: 10px 0;
+        align-items: center;
         img {
-          width: 60px;
-          height: 60px;
-          background-color: colors.$white;
-          border-radius: 50px;
+          width: 35px;
+          height: 35px;
+          // background-color: colors.$white;
+          box-shadow: 0 0 4px 0 rgba(255, 255, 255, 0.3),
+          0 6px 20px 0 rgba(255, 255, 255, 0.2);
+          // border: 1px solid white;
+          border-radius: 2px;
           padding: 2px;
         }
         p {
-          padding-top: 10px;
-          padding-bottom: 15px;
-          width: 100%;
+          margin-left: 20px;
+        }
+      }
+      .description {
+        padding-top: 20px;
+        p {
+          text-align: justify;
         }
       }
     }
+    // ul {
+    //   display: flex;
+    //   justify-content: space-around;
+    //   flex-wrap: wrap;
+    //   max-width: 1578px;
+    //   margin: 0 auto;
+    //   li {
+    //     width: 12%;
+    //     display: flex;
+    //     flex-wrap: wrap;
+    //     justify-content: center;
+    //     margin: 10px 0;
+    //     img {
+    //       width: 60px;
+    //       height: 60px;
+    //       background-color: colors.$white;
+    //       border-radius: 50px;
+    //       padding: 2px;
+    //     }
+    //     p {
+    //       padding-top: 10px;
+    //       padding-bottom: 15px;
+    //       width: 100%;
+    //     }
+    //   }
+    // }
   }
 }
 
