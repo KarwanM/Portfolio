@@ -1,10 +1,8 @@
 import React from "react";
 
-import "./about.scss";
-
-const About = () => {
+export default function About() {
   return (
-    <div className="about-section">
+    <div className="abou-container">
       <h1>Software Engineer</h1>
       <p>
         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea autem, ex
@@ -20,6 +18,4 @@ const About = () => {
       </p>
     </div>
   );
-};
-
-export default About;
+}

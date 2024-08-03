@@ -47,7 +47,7 @@ const Header = () => {
     <StyledHeader width={pageWidth} dropdown={dropdown} ref={newRef}>
       <StyledNav>
         <div className="nav-left">
-          <div id="home">&#123;&lt;/&gt;&#125;</div>
+          <NavLink  to="/" id="home">&#123;&lt;/&gt;&#125;</NavLink>
         </div>
         <div className="dropdown-container">
           <div onClick={handleDropdown} className="dropdown">
@@ -63,9 +63,8 @@ const Header = () => {
         >
           <ul>
             <NavLink id="home">Home</NavLink>
-            <NavLink id="about">About</NavLink>
-            <NavLink id="projects">Projects</NavLink>
-            <NavLink id="contact">Contact</NavLink>
+            <NavLink to="/blog" id="blogs">blog</NavLink>
+            <NavLink to="about" id="about">About</NavLink>
           </ul>
           <div className="search-container">
             <div className="search-button">
